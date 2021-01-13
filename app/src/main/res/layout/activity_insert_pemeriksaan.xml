@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".insert_pemeriksaan">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/kembali"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@drawable/leftarrow" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            <TextView
+                android:id="@+id/pemeriksaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:text="Tambah Pemeriksaan"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="@color/Blue"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/namaPasien"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="ID Pasien"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/tglPemeriksaan"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:hint="Tgl Pemeriksaan"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/kehamilan"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="90dp"
+            android:ems="10"
+            android:hint="Kehamilan ke-"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/tekananDarahSistol"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="130dp"
+            android:ems="10"
+            android:hint="Tekanan Darah Sistol"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/tekananDarahDiastol"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="170dp"
+            android:ems="10"
+            android:hint="Tekanan Darah Diastol"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/beratBadan"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="210dp"
+            android:ems="10"
+            android:hint="Berat Badan"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/tinggiBadan"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="250dp"
+            android:ems="10"
+            android:hint="Tinggi Badan"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/umurKehamilan"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="290dp"
+            android:ems="10"
+            android:hint="Umur Kehamilan"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/keluhan"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="330dp"
+            android:ems="10"
+            android:hint="Keluhan"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="370dp"
+            android:text="Foto" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/simpan"
+        android:layout_width="190dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="250dp"
+        android:onClick="InsertPemeriksaan"
+        android:text="Simpan"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/card"
+        app:layout_constraintEnd_toStartOf="@+id/card"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".DashboardRelawan">
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:toolbarId="@+id/toolbar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="222dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            <ImageView
+                android:id="@+id/fotoProfile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_collapseMode="pin"
+                app:srcCompat="@drawable/player2" />
+
+            <ImageView
+                android:id="@+id/notification"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="365dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                app:layout_collapseMode="pin"
+                app:srcCompat="@drawable/notification" />
+
+            <ImageView
+                android:id="@+id/newPasien"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="125dp"
+                app:layout_collapseMode="pin"
+                app:srcCompat="@drawable/newpasien" />
+
+            <ImageView
+                android:id="@+id/newPemeriksaan"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="235dp"
+                android:layout_marginTop="120dp"
+                app:layout_collapseMode="pin"
+                app:srcCompat="@drawable/newpemeriksaan" />
+
+            <TextView
+                android:id="@+id/namaUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="15dp"
+                android:text="Rista"
+                android:textColor="#FFFFFF"
+                android:textSize="10pt"
+                android:textStyle="normal"
+                app:layout_collapseMode="pin" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="46dp"
+                android:text="Relawan"
+                android:textColor="#FFFFFF"
+                android:textSize="12pt"
+                android:textStyle="bold"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#F5F5F5"
+        android:backgroundTint="#A1A1A1"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/pasien"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/pasien3" />
+
+        <ImageView
+            android:id="@+id/evaluasi"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/evaluasi" />
+
+        <ImageView
+            android:id="@+id/pemeriksaan"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/pemeriksaan2" />
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="348dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/profile2" />
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginTop="4dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            app:layout_anchorGravity="center|bottom"
+            app:srcCompat="@drawable/home2" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="353dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="252dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/screen_background_light"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/jmlPasien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="80dp"
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:text="Jumlah Pasien : 17"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/sdhPeriksa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="130dp"
+            android:text="Sudah Diperiksa : 8"
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/blmPeriksa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="180dp"
+            android:text="Belum Diperiksa : 9"
+            android:textColor="@color/Black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+
+    <!--    </RelativeLayout>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
