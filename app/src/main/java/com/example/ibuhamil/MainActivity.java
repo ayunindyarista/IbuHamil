@@ -18,15 +18,23 @@ public class MainActivity extends AppCompatActivity {
         UsernameEt = (EditText)findViewById(R.id.username);
         PasswordEt = (EditText)findViewById(R.id.password);
 
+        ImageView dashboard = (ImageView) findViewById(R.id.button);
 
+        dashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DashboardRelawan.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void OnLogin(View view){
-        String username = UsernameEt.getText().toString();
-        String password = PasswordEt.getText().toString();
+        String uname = UsernameEt.getText().toString();
+        String pass = PasswordEt.getText().toString();
         String type = "login";
         LoginController loginController = new LoginController(this);
-        loginController.execute(type, username, password);
+        loginController.execute(type, uname, pass);
     }
 
 

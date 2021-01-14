@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2021 at 10:12 PM
+-- Generation Time: Jan 14, 2021 at 06:58 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -71,6 +71,26 @@ CREATE TABLE `pasien` (
   `NO_KK` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`ID_PASIEN`, `NAMA`, `ALAMAT`, `NO_TELP`, `TGL_LAHIR`, `KOTA`, `HISTORI_KESEHATAN`, `NIK`, `NO_KK`) VALUES
+('PSN00001', 'aa', 'aaa', '089', '0000-00-00', 'aaa', 'aaa', '111', '111');
+
+--
+-- Triggers `pasien`
+--
+DELIMITER $$
+CREATE TRIGGER `ID_PASIEN` BEFORE INSERT ON `pasien` FOR EACH ROW BEGIN 
+	INSERT INTO tsequancepasien VALUES ("");
+	SELECT MAX(id_pasien) INTO @ID
+	FROM tsequancepasien;
+	SET new.ID_PASIEN=CONCAT('PSN',LPAD(@ID,5,'0'));
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -80,7 +100,7 @@ CREATE TABLE `pasien` (
 CREATE TABLE `pemeriksaan` (
   `ID_PEMERIKSAAN` int(11) NOT NULL,
   `ID_PASIEN` varchar(8) NOT NULL,
-  `ID_RELAWAN` varchar(8) NOT NULL,
+  `ID_RELAWAN` varchar(8) DEFAULT NULL,
   `TGL_PEMERIKSAAN` datetime NOT NULL,
   `KEHAMILAN_KE` int(11) NOT NULL,
   `KELUHAN` varchar(1000) NOT NULL,
@@ -89,8 +109,16 @@ CREATE TABLE `pemeriksaan` (
   `BERAT_BADAN` float NOT NULL,
   `TINGGI_BADAN` float NOT NULL,
   `UMUR_KEHAMILAN` int(11) NOT NULL,
-  `FOTO` longblob NOT NULL
+  `FOTO` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pemeriksaan`
+--
+
+INSERT INTO `pemeriksaan` (`ID_PEMERIKSAAN`, `ID_PASIEN`, `ID_RELAWAN`, `TGL_PEMERIKSAAN`, `KEHAMILAN_KE`, `KELUHAN`, `TEKANAN_DARAH_SISTOL`, `TEKANAN_DARAH_DIASTOL`, `BERAT_BADAN`, `TINGGI_BADAN`, `UMUR_KEHAMILAN`, `FOTO`) VALUES
+(4, 'PSN00001', NULL, '2021-01-05 12:33:08', 1, 'aa', 12, 11, 76, 157, 12, NULL),
+(5, 'PSN00001', NULL, '0000-00-00 00:00:00', 2, 'aa', 11, 12, 86, 168, 13, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,12 +137,22 @@ CREATE TABLE `relawan` (
   `PASSWORD` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `relawan`
+-- Table structure for table `tsequancepasien`
 --
 
-INSERT INTO `relawan` (`ID_RELAWAN`, `NAMA`, `ALAMAT`, `NO_TELP`, `NIK`, `STATUS`, `EMAIL`, `PASSWORD`) VALUES
-('RELW0001', 'Rista', 'Kedurus III Pilang Asri No 16', '085815314881', '3578015404990002', 1, 'rista@gmail.com', 'rista123');
+CREATE TABLE `tsequancepasien` (
+  `id_pasien` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tsequancepasien`
+--
+
+INSERT INTO `tsequancepasien` (`id_pasien`) VALUES
+(1);
 
 --
 -- Indexes for dumped tables
@@ -153,6 +191,28 @@ ALTER TABLE `pemeriksaan`
 --
 ALTER TABLE `relawan`
   ADD PRIMARY KEY (`ID_RELAWAN`);
+
+--
+-- Indexes for table `tsequancepasien`
+--
+ALTER TABLE `tsequancepasien`
+  ADD PRIMARY KEY (`id_pasien`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pemeriksaan`
+--
+ALTER TABLE `pemeriksaan`
+  MODIFY `ID_PEMERIKSAAN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tsequancepasien`
+--
+ALTER TABLE `tsequancepasien`
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

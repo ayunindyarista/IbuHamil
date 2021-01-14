@@ -14,7 +14,7 @@
         android:scaleType="fitXY"
         app:srcCompat="@drawable/bg3"
         tools:ignore="MissingConstraints"
-        android:onClick="OnLogin"/>
+        />
 
     <ImageView
         android:id="@+id/button"
